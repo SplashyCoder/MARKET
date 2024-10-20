@@ -8,7 +8,7 @@ const Container = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className="flex items-center justify-center h-screen w-screen">
+    <div className="flex flex-col items-center justify-center h-screen w-screen p-2">
       {children}
     </div>
   );
