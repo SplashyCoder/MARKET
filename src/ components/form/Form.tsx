@@ -26,7 +26,7 @@ const Form = () => {
   };
 
   return (
-    <div className="border border-double border-amber-500 bg-zinc-600 p-2 w-full">
+    <div className="border border-double border-amber-500 bg-zinc-600 p-2 w-0.8">
       <form onSubmit={handleSubmit}>
         <Card name="Arroz" cuantity={1} handeler={handleChange} />
         <Card name="Azucar" cuantity={1} handeler={handleChange} />
