@@ -1,13 +1,10 @@
 import React from "react";
-interface Articulo {
-  name: string;
-  cuantity: number;
-  handeler: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-const Card = ({ name, cuantity, handeler }: Articulo) => {
+import { CardProps } from "@/types/interfaces";
+
+const Card = ({ key, name, cuantity }: CardProps) => {
   return (
     <>
-      <div className="flex justify-between items-center p-2">
+      <div className="flex justify-between items-center p-2" key={key}>
         <label className="w-1/2" htmlFor="name">
           {name}
         </label>
@@ -18,7 +15,7 @@ const Card = ({ name, cuantity, handeler }: Articulo) => {
             id="name"
             name="name"
             value="check"
-            onChange={handeler}
+            // onChange={handeler}
           />
         </div>
       </div>

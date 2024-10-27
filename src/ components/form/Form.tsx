@@ -28,12 +28,12 @@ const Form = () => {
   return (
     <div className="border border-double border-amber-500 bg-zinc-600 p-2 w-0.8">
       <form onSubmit={handleSubmit}>
-        <Card name="Arroz" cuantity={1} handeler={handleChange} />
+        {/* <Card name="Arroz" cuantity={1} handeler={handleChange} />
         <Card name="Azucar" cuantity={1} handeler={handleChange} />
         <Card name="Sal" cuantity={1} handeler={handleChange} />
         <Card name="Panela" cuantity={1} handeler={handleChange} />
         <Card name="Comida Monchos" cuantity={1} handeler={handleChange} />
-        <Card name="Arena Monchos" cuantity={1} handeler={handleChange} />
+        <Card name="Arena Monchos" cuantity={1} handeler={handleChange} /> */}
 
         <button
           className=" flex justify-center items-center relative w-full border border-1 border-solid bg-amber-700 border-zinc-950 hover:bg-amber-600"
