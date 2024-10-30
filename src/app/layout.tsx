@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
 // import localFont from "next/font/local";
+// import type { Metadata } from "next";
+import { DataProvider } from "@/context/DataContext";
 import "./globals.css";
 
 // const geistSans = localFont({
@@ -26,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-center items-center content-center bg-zinc-800">
-        {children}
+        <DataProvider>{children}</DataProvider>
       </body>
     </html>
   );

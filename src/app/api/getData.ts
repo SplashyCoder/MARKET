@@ -1,7 +1,7 @@
 import { CardProps } from "@/types/interfaces";
 
 export async function getData(): Promise<CardProps[]> {
-  const res = await fetch("http://192.168.20.17:8000/", {
+  const res = await fetch("http://192.168.20.22:8000/", {
     method: "GET",
     cache: "no-store",
   });
