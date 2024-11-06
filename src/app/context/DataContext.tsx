@@ -12,7 +12,7 @@ import { CardProps } from "@/types/interfaces";
 type DataContextType = {
   data: CardProps[];
   loading: boolean;
-  fetchData: () => Promise<void>;
+  getData: () => Promise<void>;
 };
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
@@ -21,35 +21,42 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const [data, setData] = useState<CardProps[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchData = async () => {
+  const getData = async () => {
     setLoading(true);
     try {
-      const response = await fetch(
-        // "https://pokeapi.co/api/v2/pokemon?limit=10"
-        "http://192.168.20.22:8000/"
-      ); // Obtener los primeros 10 Pokémon
+      const response = await fetch("http://192.168.20.22:8000/", {
+        method: "GET",
+        cache: "no-store",
+      });
+
       const result = await response.json();
-      // const pokemons: Pokemon[] = await Promise.all(
-      //   result.results.map(async (pokemon: { name: string; url: string }) => {
-      //     const res = await fetch(pokemon.url);
-      //     return await res.json();
-      //   })
-      // );
+
       setData(result);
       console.log(result);
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.log(`Error fetching data: ${error}`);
     } finally {
       setLoading(false);
     }
   };
 
+  const postData = async () => {
+    try {
+      const response = await fetch("http://192.168.20.22:8000/", {
+        method: "GET",
+        cache: "no-store",
+      });
+    } catch (error) {
+      console.log(`Error fetching data: ${error}`);
+    }
+  };
+
   useEffect(() => {
-    fetchData();
+    getData();
   }, []);
 
   return (
-    <DataContext.Provider value={{ data, loading, fetchData }}>
+    <DataContext.Provider value={{ data, loading, getData }}>
       {children}
     </DataContext.Provider>
   );

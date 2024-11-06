@@ -14,7 +14,12 @@ const DisplayData = () => {
         <div className="w-full">
           {data.map((item) => (
             <div key={item.id} style={{ marginBottom: "20px" }}>
-              <Card name={item.name} cuantity={item.cuantity} />
+              <Card
+                name={item.name}
+                cuantity={item.cuantity}
+                price={item.price}
+                ready={item.ready}
+              />
             </div>
           ))}
         </div>

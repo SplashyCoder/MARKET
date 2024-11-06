@@ -1,7 +1,7 @@
 import React from "react";
 import { CardProps } from "@/types/interfaces";
 
-const Card = ({ name, cuantity }: CardProps) => {
+const Card = ({ name, cuantity, price, ready }: CardProps) => {
   return (
     <>
       <div className="flex gap-2 items-center p-2 w-full">
@@ -10,13 +10,22 @@ const Card = ({ name, cuantity }: CardProps) => {
         </label>
         <div className="flex gap-4 items-end justify-end w-1/2">
           <label htmlFor="cuantity">{cuantity}</label>
-          {/* <input
+
+          <input
+            type="number"
+            // id="name"
+            // name="name"
+            value={price}
+            className="w-24"
+            // onChange={handeler}
+          />
+          <input
             type="checkbox"
             id="name"
             name="name"
-            value="check"
+            defaultChecked={ready ? true : false}
             // onChange={handeler}
-          /> */}
+          />
         </div>
       </div>
       <div className="bg-white w-full h-px" />
