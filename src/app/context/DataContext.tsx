@@ -26,7 +26,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       const response = await fetch(
         // "https://pokeapi.co/api/v2/pokemon?limit=10"
-        "http://192.168.20.24:8000/"
+        "http://192.168.20.22:8000/"
       ); // Obtener los primeros 10 Pokémon
       const result = await response.json();
       // const pokemons: Pokemon[] = await Promise.all(
