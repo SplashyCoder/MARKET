@@ -3,11 +3,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { CardProps } from "@/types/interfaces";
 
-// interface Pokemon {
-//   id: number;
-//   name: string;
-//   cuantity?: number;
-// }
+const URL = "http://192.168.20.24:8000";
 
 type DataContextType = {
   data: CardProps[];
@@ -21,10 +17,12 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const [data, setData] = useState<CardProps[]>([]);
   const [loading, setLoading] = useState(true);
 
+  console.log(URL);
+
   const getData = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://192.168.20.22:8000/", {
+      const response = await fetch(URL, {
         method: "GET",
         cache: "no-store",
       });
