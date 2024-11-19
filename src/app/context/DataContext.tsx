@@ -40,7 +40,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
 
   const postData = async () => {
     try {
-      const response = await fetch("http://192.168.20.22:8000/", {
+      const response = await fetch("http://192.168.20.24:8000/", {
         method: "GET",
         cache: "no-store",
       });
