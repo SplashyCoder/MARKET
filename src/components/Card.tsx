@@ -1,13 +1,13 @@
 import React from "react";
 import { CardProps } from "@/types/interfaces";
 
-const Card = ({ name, cuantity, price, ready }: CardProps) => {
-  const handeler = () => {
-    console.log("hola");
-  };
+const Card = ({ id, name, cuantity, price, ready, handeler }: CardProps) => {
   return (
     <>
       <div className="flex gap-2 items-center p-2 w-full">
+        <label className="w-1/2" htmlFor="id">
+          {id}
+        </label>
         <label className="w-1/2" htmlFor="name">
           {name}
         </label>
@@ -18,7 +18,7 @@ const Card = ({ name, cuantity, price, ready }: CardProps) => {
             type="number"
             value={price}
             className="w-24"
-            // onChange={handeler}
+            onChange={() => {}}
           />
           <input
             type="checkbox"

@@ -15,6 +15,7 @@ const DisplayData = () => {
           {data.map((item) => (
             <div key={item.id} style={{ marginBottom: "20px" }}>
               <Card
+                id={item.id}
                 name={item.name}
                 cuantity={item.cuantity}
                 price={item.price}

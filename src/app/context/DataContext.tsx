@@ -3,13 +3,20 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { CardProps } from "@/types/interfaces";
 
-const URL = "http://192.168.20.24:8000";
+const URL = process.env.NEXT_PUBLIC_URL;
 
-type DataContextType = {
+interface DataContextType {
   data: CardProps[];
   loading: boolean;
   getData: () => Promise<void>;
-};
+  patchData: () => Promise<void>;
+}
+
+interface ItemUpdate {
+  id: number;
+  price: number;
+  ready: boolean;
+}
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
@@ -38,12 +45,17 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
-  const postData = async () => {
+  const patchData = async ({ id }: ItemUpdate) => {
+    // , price, ready
     try {
-      const response = await fetch("http://192.168.20.24:8000/", {
-        method: "GET",
-        cache: "no-store",
-      });
+      const response = await fetch(
+        `http://192.168.20.24:8000//item/update/${id}`,
+        {
+          method: "PATCH",
+          cache: "no-store",
+        }
+      );
+      console.log(response);
     } catch (error) {
       console.log(`Error fetching data: ${error}`);
     }

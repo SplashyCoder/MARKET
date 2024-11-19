@@ -4,5 +4,5 @@ export interface CardProps {
   cuantity: number;
   price: number;
   ready: boolean;
-  // handeler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handeler: () => void;
 }
